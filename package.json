@@ -1,0 +1,25 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "A simple chat client using socket.io",
+  "main": "server.js",
+   "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+   "repository": {
+    "type": "git",
+    "url": "http://github.com/ssaranga/chatv.git"
+  },
+  "author": "saranga",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "nodemon": "^1.18.10",
+    "socket.io": "^2.2.0"
+  },
+  "homepage": "http://github.com/ssaranga/chatv"
+}

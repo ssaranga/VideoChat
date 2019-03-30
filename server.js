@@ -25,8 +25,8 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('new message', {
       username: socket.username,
       message: data
-    });
-  });
+    })
+  })
 
   // when the client emits 'add user', this listens and executes
   socket.on('add user', (username) => {
@@ -38,27 +38,27 @@ io.on('connection', (socket) => {
     addedUser = true;
     socket.emit('login', {
       numUsers: numUsers
-    });
+    })
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
       username: socket.username,
       numUsers: numUsers
-    });
-  });
+    })
+  })
 
   // when the client emits 'typing', we broadcast it to others
   socket.on('typing', () => {
     socket.broadcast.emit('typing', {
       username: socket.username
-    });
-  });
+    })
+  })
 
   // when the client emits 'stop typing', we broadcast it to others
   socket.on('stop typing', () => {
     socket.broadcast.emit('stop typing', {
       username: socket.username
-    });
-  });
+    })
+  })
 
   // when the user disconnects.. perform this
   socket.on('disconnect', () => {
@@ -69,10 +69,10 @@ io.on('connection', (socket) => {
       socket.broadcast.emit('user left', {
         username: socket.username,
         numUsers: numUsers
-      });
+      })
     }
-  });
+  })
   server.listen(server_port, server_ip_address,()=>{
-console.log( "Listening on " + server_ip_address + ", server_port " + server_port  )
+  console.log( "Listening on " + server_ip_address + ", server_port " + server_port  )
 
-});
+})

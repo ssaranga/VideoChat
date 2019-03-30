@@ -12,7 +12,7 @@
   },
    "repository": {
     "type": "git",
-    "url": "http://github.com/ssaranga/chatv.git"
+    "url": "http://github.com/ssaranga/VideoChat.git"
   },
   "author": "saranga",
   "license": "ISC",
@@ -21,5 +21,5 @@
     "nodemon": "^1.18.10",
     "socket.io": "^2.2.0"
   },
-  "homepage": "http://github.com/ssaranga/chatv"
+  "homepage": "http://github.com/ssaranga/VideoChat"
 }

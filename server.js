@@ -73,6 +73,9 @@ io.on('connection', (socket) => {
       })
     }
   })
+
+})
+      
   server.listen(server_port, server_ip_address,()=>{
   console.log( "Listening on " + server_ip_address + ", server_port " + server_port  )
 

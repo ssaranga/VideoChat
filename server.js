@@ -3,15 +3,14 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var server = require('http').createServer(app);
-var io = require('../..')(server);
-var port = process.env.PORT || 3000;
+var io = require('socket.io').listen(server);
+var server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    server_ip_address   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-server.listen(port, () => {
-  console.log('Server listening at port %d', port);
+app.get('/', (req, res) => {
+
+res.send('Chat Server is running on port 3000')
 });
-
-// Routing
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Chatroom
 
@@ -73,4 +72,7 @@ io.on('connection', (socket) => {
       });
     }
   });
+  server.listen(server_port, server_ip_address,()=>{
+console.log( "Listening on " + server_ip_address + ", server_port " + server_port  )
+
 });

@@ -1,9 +1,10 @@
 // Setup basic express server
-var express = require('express');
-var app = express();
-var path = require('path');
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+const express = require('express'),
+http = require('http'),
+app = express(),
+      
+server = http.createServer(app),
+io = require('socket.io').listen(server);
 var server_port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     server_ip_address   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 

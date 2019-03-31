@@ -26,6 +26,7 @@ socket.on('new message', (data) => {
       
       // we tell the client to execute 'new message'
       io.emit('new message', {
+      timestamp: Date.now(),      
       username: socket.username,
       message: data
       })

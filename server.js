@@ -32,7 +32,7 @@ socket.on('new message', (data) => {
 })
 socket.on('playcontrol', function(mediaplaycontrol,userName) {
     
-      console.log( ' Video Play'+mediaplaycontrol)
+      console.log( ' Video Play'+mediaplaycontrol+"by"+userName)
       
       socket.broadcast.emit("mediacontrol",{
       mediaplaycontrol:mediaplaycontrol,

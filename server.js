@@ -64,9 +64,9 @@ socket.on('add user', (username) => {
 socket.on('typing', () => {
       socket.broadcast.emit('typing', {
             
-      username: socket.username
+      
             
-      console.log(username+" is typing..")
+      console.log(socket.username+" is typing..")
     })
 })
 
@@ -87,7 +87,7 @@ socket.on('disconnect', () => {
       username: socket.username,
       numUsers: numUsers
       
-      console.log(username+" left");
+      console.log(socket.username+" left");
       
       console.log("Connected Users"+numUsers);
       })

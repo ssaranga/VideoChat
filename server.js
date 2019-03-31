@@ -63,11 +63,12 @@ socket.on('add user', (username) => {
   // when the client emits 'typing', we broadcast it to others
 socket.on('typing', () => {
       socket.broadcast.emit('typing', {
-            
+      username: socket.username        
       
             
-      console.log(socket.username+" is typing..")
     })
+      
+      console.log(socket.username+" is typing..")
 })
 
   // when the client emits 'stop typing', we broadcast it to others

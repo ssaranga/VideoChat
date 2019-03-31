@@ -42,10 +42,13 @@ socket.on('playcontrol', function(mediaplaycontrol) {
 socket.on('add user', (username) => {
       if (addedUser) return;
 
+        console.log(username +" : has joined the chat "  );
     // we store the username in the socket session for this client
       socket.username = username;
       ++numUsers;
       addedUser = true;
+      
+        console.log("Connected Users"+numUsers);
       socket.emit('login', {
             numUsers: numUsers
       })
@@ -59,7 +62,10 @@ socket.on('add user', (username) => {
   // when the client emits 'typing', we broadcast it to others
 socket.on('typing', () => {
       socket.broadcast.emit('typing', {
+            
       username: socket.username
+            
+      console.log(username+" is typing..")
     })
 })
 
@@ -79,6 +85,10 @@ socket.on('disconnect', () => {
       socket.broadcast.emit('user left', {
       username: socket.username,
       numUsers: numUsers
+      
+      console.log(username+" left");
+      
+      console.log("Connected Users"+numUsers);
       })
     }
 })

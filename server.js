@@ -68,7 +68,6 @@ socket.on('typing', () => {
             
     })
       
-      console.log(socket.username+" is typing..")
 })
 
   // when the client emits 'stop typing', we broadcast it to others
@@ -88,9 +87,6 @@ socket.on('disconnect', () => {
       username: socket.username,
       numUsers: numUsers
       
-      console.log(socket.username+" left");
-      
-      console.log("Connected Users"+numUsers);
       })
     }
 })

@@ -34,8 +34,8 @@ socket.on('playcontrol', function(mediaplaycontrol,userName) {
     
       console.log( ' Video Play'+mediaplaycontrol+"by"+userName)
       
-      socket.broadcast.emit("mediacontrol",{
-      mediaplaycontrol:mediaplaycontrol,
+      socket.broadcast.emit('mediacontrol',{
+      mediaplaycontrol: mediaplaycontrol,
       username: userName
       }) 
 
@@ -45,13 +45,13 @@ socket.on('playcontrol', function(mediaplaycontrol,userName) {
 socket.on('add user', (username) => {
       if (addedUser) return;
 
-        console.log(username +" : has joined the chat "  );
+      console.log(username +" : has joined the chat "  );
     // we store the username in the socket session for this client
       socket.username = username;
       ++numUsers;
       addedUser = true;
       
-        console.log("Connected Users"+numUsers);
+      console.log("Connected Users"+numUsers);
       socket.emit('login', {
             numUsers: numUsers
       })

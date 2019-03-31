@@ -31,8 +31,10 @@ socket.on('new message', (data) => {
       })
 })
 socket.on('playcontrol', function(mediaplaycontrol) {
-    console.log( ' Video Play'+mediaplaycontrol)
-    socket.broadcast.emit("mediacontrol",mediaplaycontrol) 
+    
+      console.log( ' Video Play'+mediaplaycontrol)
+    
+      socket.broadcast.emit("mediacontrol",mediaplaycontrol) 
 
 })
 

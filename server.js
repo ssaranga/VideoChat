@@ -25,10 +25,15 @@ io.on('connection', (socket) => {
 socket.on('new message', (data) => {
       
       // we tell the client to execute 'new message'
-      socket.broadcast.emit('new message', {
+      io.emit('new message', {
       username: socket.username,
       message: data
       })
+})
+socket.on('playcontrol', function(mediaplaycontrol) {
+    console.log( ' Video Play'+mediaplaycontrol)
+    socket.broadcast.emit("mediacontrol",mediaplaycontrol) 
+
 })
 
       // when the client emits 'add user', this listens and executes

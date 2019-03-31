@@ -30,11 +30,11 @@ socket.on('new message', (data) => {
       message: data
       })
 })
-socket.on('playcontrol', (mediaplaycontrol,userName) => {
+socket.on('playcontrol', (mediaplaycontrol) => {
     
       console.log( ' Video Play'+mediaplaycontrol+"by"+userName)
       
-       let  media = {"mediaplaycontrol":mediaplaycontrol, "username":userName}
+       let  media = {"mediaplaycontrol":mediaplaycontrol, "username":socket.username}
       socket.broadcast.emit('mediacontrol',media) 
 
 })
